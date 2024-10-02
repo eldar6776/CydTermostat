@@ -1,0 +1,3 @@
+C:/Users/eldar/OneDrive/Desktop/th_code/build/CMakeFiles/ui.dir
+C:/Users/eldar/OneDrive/Desktop/th_code/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/eldar/OneDrive/Desktop/th_code/build/CMakeFiles/ZERO_CHECK.dir
