@@ -10,8 +10,24 @@
 extern "C" {
 #endif
 
-void btnConnectClicked(lv_event_t * e);
-void btnSearchClicked(lv_event_t * e);
+void initScreen(lv_event_t * e);
+void pin1click(lv_event_t * e);
+void pin2click(lv_event_t * e);
+void pin3click(lv_event_t * e);
+void pin4click(lv_event_t * e);
+void pin5click(lv_event_t * e);
+void pin6click(lv_event_t * e);
+void pin7click(lv_event_t * e);
+void pin8click(lv_event_t * e);
+void pin9click(lv_event_t * e);
+void pinXclick(lv_event_t * e);
+void pin0click(lv_event_t * e);
+void pinOKclick(lv_event_t * e);
+void updateThermostatState(lv_event_t * e);
+void updateSettings(lv_event_t * e);
+void updateBacklightHigh(lv_event_t * e);
+void updateHysteresis(lv_event_t * e);
+void updateSensorOffset(lv_event_t * e);
 
 #ifdef __cplusplus
 } /*extern "C"*/

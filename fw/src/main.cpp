@@ -1,28 +1,83 @@
 #include <Arduino.h>
-
 #include <esp32_smartdisplay.h>
+#include <EEPROM.h>
 #include <ui/ui.h>
 
 #define ADC_READOUT_PERIOD 2345U  // ntc conversion rate
 #define AMBIENT_NTC_RREF 10000U   // 10k NTC value of at 25 degrees
 #define AMBIENT_NTC_B_VALUE 3977U // NTC beta parameter
 #define AMBIENT_NTC_PULLUP 10000U // 10k pullup resistor
-#define WIFI_SSID "WiFi0"
-#define WIFI_PASSWORD "23456789"
-#define RADIO_URL "http://www.wdr.de/wdrlive/media/einslive.m3u"
 
 const int pinNTC = 17;    // ntc sensor input
 const int pinSTATUS = 11; // heater drive error status
 const int pinSTART = 12;  // start/stop heating drive
 
 const int pinDE = 18; // rs485 driver data enable
-
-float ntc_temp;
+float setpointTemp;
+float ntcTemp;
+float offsetTemp;
+float hysteresisTemp;
+float roomTemp;
 bool status_error = false;
 bool ntc_error = false;
+bool printrd = false;
+char printlog[256];
 void ADC_Read(void);
 void Status(void);
 float GetTemperature(uint16_t adc_value);
+
+constexpr uint8_t INIT_FLAG = 42; // 😉 "The Hitchhiker's Guide to the Galaxy" (Douglas Adams)
+
+constexpr uint8_t EEPROM_SIZE = sizeof(uint8_t) + (3 * sizeof(float_t));
+constexpr uint8_t ADDR_INIT_FLAG = 0;
+constexpr float_t ADDR_SET_TEMP = sizeof(float_t) + sizeof(uint8_t);
+constexpr float_t ADDR_NTC_OFFSET = sizeof(uint8_t) + sizeof(float_t) + sizeof(float_t);
+constexpr float_t ADDR_HYSTERESIS = sizeof(uint8_t) + sizeof(float_t) + sizeof(float_t) + sizeof(float_t);
+
+void initEEPROM()
+{
+    Serial.print(F("2. Initializing EEPROM... "));
+    if (EEPROM.begin(EEPROM_SIZE))
+    {
+        // display of the values currently stored in the EEPROM
+        Serial.print(F("done\n   -> [ "));
+        uint8_t e1 = EEPROM.readByte(ADDR_INIT_FLAG);
+        float_t e2 = EEPROM.readFloat(ADDR_SET_TEMP);
+        float_t e3 = EEPROM.readFloat(ADDR_NTC_OFFSET);
+        float_t e4 = EEPROM.readFloat(ADDR_HYSTERESIS);
+        Serial.printf("0x%02x => %u | 0x%02x => %.1f | 0x%02x => %.1f ]\n", ADDR_INIT_FLAG, e1, ADDR_SET_TEMP, e2, ADDR_NTC_OFFSET, e3, ADDR_HYSTERESIS, e4);
+    }
+    else
+    {
+        Serial.println("error!");
+    }
+}
+
+void initTemp()
+{
+    // the temperature range stored in the EEPROM is read out
+    setpointTemp = EEPROM.readFloat(ADDR_SET_TEMP);
+    offsetTemp = EEPROM.readFloat(ADDR_NTC_OFFSET);
+    hysteresisTemp = EEPROM.readFloat(ADDR_HYSTERESIS);
+    // whether these values are to be taken into account
+    // (only if they have already been stored in the EEPROM at least once)
+    EEPROM.readByte(ADDR_INIT_FLAG) == INIT_FLAG;
+    // the temperature range to be taken over by the thermostat is deduced from this:
+
+    Serial.print(F("3. Temperature set to "));
+    Serial.printf("[ %.1f°C , %.1f°C , %.1f°C ]\n", setpointTemp, offsetTemp, hysteresisTemp);
+}
+
+void saveToEEPROM(void)
+{
+
+    EEPROM.writeFloat(ADDR_SET_TEMP, setpointTemp);
+    EEPROM.writeFloat(ADDR_NTC_OFFSET, offsetTemp);
+    EEPROM.writeFloat(ADDR_HYSTERESIS, hysteresisTemp);
+    EEPROM.writeByte(ADDR_INIT_FLAG, INIT_FLAG);
+    EEPROM.commit();
+    Serial.println(F("-> Has been stored in EEPROM\n"));
+}
 
 void setup()
 {
@@ -30,9 +85,11 @@ void setup()
     pinMode(pinNTC, ANALOG);
     pinMode(pinSTATUS, INPUT_PULLUP);
     pinMode(pinSTART, OUTPUT_OPEN_DRAIN);
-    digitalWrite(pinSTART,HIGH);
+    digitalWrite(pinSTART, HIGH);
     Serial.begin(115200);
     // Serial.setDebugOutput(true);
+    initEEPROM();
+    initTemp();
 
     log_i("CPU: %s rev%d, CPU Freq: %d Mhz, %d core(s)", ESP.getChipModel(), ESP.getChipRevision(), getCpuFrequencyMhz(), ESP.getChipCores());
     log_i("Free heap: %d bytes", ESP.getFreeHeap());
@@ -58,16 +115,25 @@ void loop()
     ADC_Read();
     lv_timer_handler();
 
-    if(millis()-now >= 100){
+    if (millis() - now >= 1000)
+    {
         now = millis();
-        digitalWrite(pinSTART,!digitalRead(pinSTART));
+        digitalWrite(pinSTART, !digitalRead(pinSTART));
+    }
+
+    if (printrd)
+    {
+        Serial.println(printlog);
+        printrd = false;
     }
 }
 
 void Status(void)
 {
-    if(digitalRead(pinSTATUS) == LOW) lv_obj_clear_state(ui_chkONOFF, LV_STATE_CHECKED);
-    else lv_obj_add_state(ui_chkONOFF, LV_STATE_CHECKED);
+    if (digitalRead(pinSTATUS) == LOW)
+        lv_obj_clear_state(ui_chkONOFF, LV_STATE_CHECKED);
+    else
+        lv_obj_add_state(ui_chkONOFF, LV_STATE_CHECKED);
 }
 
 float GetTemperature(uint16_t adc_value)
@@ -81,7 +147,7 @@ float GetTemperature(uint16_t adc_value)
 
 void ADC_Read(void)
 {
-
+    char txt[16] = {0};
     static uint32_t adctmr = 0U;
     static uint32_t sample_cnt = 0U;
     static uint16_t sample_value[10] = {0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U};
@@ -103,18 +169,21 @@ void ADC_Read(void)
         {
             if (sample_cnt == 0)
                 ntc_error = true;
-            ntc_temp = 0;
+            ntcTemp = 0;
         }
         else
         {
             if (sample_cnt == 0)
                 ntc_error = false;
-            ntc_temp = GetTemperature(tmp);
-            lv_slider_set_value(ui_Slider_Battery, ntc_temp, LV_ANIM_OFF);
+            ntcTemp = GetTemperature(tmp);
+            roomTemp = ntcTemp + offsetTemp;
+            lv_slider_set_value(ui_Slider_Battery, roomTemp, LV_ANIM_OFF);
+            int n = sprintf(txt, "%+0.1f", roomTemp);
+            lv_label_set_text_fmt(ui_valOffsetWithTemperature, txt);
             Serial.print("NTC raw = ");
             Serial.print(tmp);
             Serial.print(" NTC temperature = ");
-            Serial.println(ntc_temp);
+            Serial.println(roomTemp);
         }
     }
 }

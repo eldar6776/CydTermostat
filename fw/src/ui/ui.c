@@ -7,9 +7,6 @@
 #include "ui_helpers.h"
 
 ///////////////////// VARIABLES ////////////////////
-void Particle1_Animation(lv_obj_t * TargetObject, int delay);
-void Particle2_Animation(lv_obj_t * TargetObject, int delay);
-void Particle3_Animation(lv_obj_t * TargetObject, int delay);
 void Fash_Animation(lv_obj_t * TargetObject, int delay);
 void Wave1_Animation(lv_obj_t * TargetObject, int delay);
 void Wave2_Animation(lv_obj_t * TargetObject, int delay);
@@ -34,8 +31,6 @@ lv_obj_t * ui_Label_Number4;
 lv_obj_t * ui_Label_Number5;
 lv_obj_t * ui_Group_Header2;
 lv_obj_t * ui_Head_Group1;
-lv_obj_t * ui_Label_Time3;
-lv_obj_t * ui_LabeL_PM2;
 lv_obj_t * ui_Group_Footer;
 lv_obj_t * ui_Button_Group;
 lv_obj_t * ui_BTN_Driving;
@@ -129,14 +124,14 @@ void ui_event_Button_PinOK(lv_event_t * e);
 lv_obj_t * ui_Button_PinOK;
 lv_obj_t * ui_Pin_Add12;
 lv_obj_t * ui_Image_Ok;
-lv_obj_t * ui_Group_Map;
+lv_obj_t * ui_Group_Info;
 lv_obj_t * ui_Group_Title3;
 lv_obj_t * ui_Title_BG3;
 lv_obj_t * ui_Label_Unlock1;
 lv_obj_t * ui_Image3;
-lv_obj_t * ui_lblThermostatMode;
-lv_obj_t * ui_lblShedule;
+lv_obj_t * ui_lblThermostatState;
 lv_obj_t * ui_lblHeatingStatus;
+lv_obj_t * ui_lblErrorSoftStart;
 lv_obj_t * ui_Speed_Number_2;
 lv_obj_t * ui_Speed_Number_1;
 lv_obj_t * ui_Menu;
@@ -144,7 +139,9 @@ void ui_event_BTN_Settings(lv_event_t * e);
 lv_obj_t * ui_BTN_Settings;
 lv_obj_t * ui_lblSETPOINT;
 lv_obj_t * ui_lblROOM;
+void ui_event_chkONOFF(lv_event_t * e);
 lv_obj_t * ui_chkONOFF;
+lv_obj_t * ui_txtPin;
 
 
 // SCREEN: ui_Settings_Wifi_Bus
@@ -152,61 +149,55 @@ void ui_Settings_Wifi_Bus_screen_init(void);
 lv_obj_t * ui_Settings_Wifi_Bus;
 lv_obj_t * ui_Group_Header1;
 lv_obj_t * ui_Head_Group2;
-lv_obj_t * ui_Label_Time2;
-lv_obj_t * ui_LabeL_PM1;
 lv_obj_t * ui_Chart_Group;
-void ui_event_Checkbox1(lv_event_t * e);
-lv_obj_t * ui_Checkbox1;
-void ui_event_Checkbox2(lv_event_t * e);
-lv_obj_t * ui_Checkbox2;
-void ui_event_Checkbox3(lv_event_t * e);
-lv_obj_t * ui_Checkbox3;
-void ui_event_Checkbox4(lv_event_t * e);
-lv_obj_t * ui_Checkbox4;
-void ui_event_Checkbox5(lv_event_t * e);
-lv_obj_t * ui_Checkbox5;
-void ui_event_Checkbox6(lv_event_t * e);
-lv_obj_t * ui_Checkbox6;
-void ui_event_Checkbox7(lv_event_t * e);
-lv_obj_t * ui_Checkbox7;
-void ui_event_Checkbox8(lv_event_t * e);
-lv_obj_t * ui_Checkbox8;
-lv_obj_t * ui_Dropdown1;
-lv_obj_t * ui_Dropdown2;
-lv_obj_t * ui_Dropdown3;
-lv_obj_t * ui_Dropdown4;
-lv_obj_t * ui_Dropdown5;
-lv_obj_t * ui_Dropdown6;
-lv_obj_t * ui_Dropdown7;
-lv_obj_t * ui_Dropdown8;
+void ui_event_chkSoftstart1(lv_event_t * e);
+lv_obj_t * ui_chkSoftstart1;
+void ui_event_chkSoftstart2(lv_event_t * e);
+lv_obj_t * ui_chkSoftstart2;
+void ui_event_chkSoftstart3(lv_event_t * e);
+lv_obj_t * ui_chkSoftstart3;
+void ui_event_chkSoftstart4(lv_event_t * e);
+lv_obj_t * ui_chkSoftstart4;
+void ui_event_chkSoftstart5(lv_event_t * e);
+lv_obj_t * ui_chkSoftstart5;
+void ui_event_chkSoftstart6(lv_event_t * e);
+lv_obj_t * ui_chkSoftstart6;
+void ui_event_chkSoftstart7(lv_event_t * e);
+lv_obj_t * ui_chkSoftstart7;
+void ui_event_chkSoftstart8(lv_event_t * e);
+lv_obj_t * ui_chkSoftstart8;
+lv_obj_t * ui_dpdSoftstart1;
+lv_obj_t * ui_dpdSoftstart2;
+lv_obj_t * ui_dpdSoftstart3;
+lv_obj_t * ui_dpdSoftstart4;
+lv_obj_t * ui_dpdSoftstart5;
+lv_obj_t * ui_dpdSoftstart6;
+lv_obj_t * ui_dpdSoftstart7;
+lv_obj_t * ui_dpdSoftstart8;
 lv_obj_t * ui_lblRSBUSSETTINGS;
-void ui_event_Keyboard1(lv_event_t * e);
-lv_obj_t * ui_Keyboard1;
-lv_obj_t * ui_lblCONNECTED;
-void ui_event_Checkbox9(lv_event_t * e);
-lv_obj_t * ui_Checkbox9;
-lv_obj_t * ui_lblWIFISETTINGS;
-void ui_event_btnCONNECT(lv_event_t * e);
-lv_obj_t * ui_btnCONNECT;
-lv_obj_t * ui_lblCONNECT;
-lv_obj_t * ui_lblPASSWORD;
-lv_obj_t * ui_lblNAME;
-void ui_event_txtPASSWORD(lv_event_t * e);
-lv_obj_t * ui_txtPASSWORD;
-void ui_event_txtUSERNAME(lv_event_t * e);
-lv_obj_t * ui_txtUSERNAME;
-void ui_event_btnSEARCH(lv_event_t * e);
-lv_obj_t * ui_btnSEARCH;
-lv_obj_t * ui_lblSEARCH;
-lv_obj_t * ui_dplWIFILIST;
+lv_obj_t * ui_lblThermostatSettings;
 lv_obj_t * ui_Menu1;
 void ui_event_BTN_Settings1(lv_event_t * e);
 lv_obj_t * ui_BTN_Settings1;
-lv_obj_t * ui_Label2;
-lv_obj_t * ui_Dropdown9;
-lv_obj_t * ui_Label1;
-lv_obj_t * ui_Dropdown10;
-lv_obj_t * ui_Label3;
+lv_obj_t * ui_lblHysteresis;
+lv_obj_t * ui_lblSensorOffset;
+lv_obj_t * ui_lblDisplaySettings;
+void ui_event_sldBacklightHigh(lv_event_t * e);
+lv_obj_t * ui_sldBacklightHigh;
+void ui_event_sldHysteresis(lv_event_t * e);
+lv_obj_t * ui_sldHysteresis;
+void ui_event_sldSensorOffset(lv_event_t * e);
+lv_obj_t * ui_sldSensorOffset;
+lv_obj_t * ui_lblBacklightHigh;
+lv_obj_t * ui_valHysteresis;
+lv_obj_t * ui_lblCelsious1;
+lv_obj_t * ui_valSensorOffset;
+lv_obj_t * ui_lblCelsious2;
+lv_obj_t * ui_valOffsetWithTemperature;
+lv_obj_t * ui_lblCelsious3;
+lv_obj_t * ui_lblRoomTemperature;
+lv_obj_t * ui_chkWifi;
+lv_obj_t * ui_lblWiFiSettings;
 void ui_event____initial_actions0(lv_event_t * e);
 lv_obj_t * ui____initial_actions0;
 const lv_img_dsc_t * ui_imgset_ebike_s[4] = {&ui_img_ebike_s1_png, &ui_img_ebike_s2_png, &ui_img_ebike_s3_png, &ui_img_ebike_s4_png};
@@ -223,74 +214,6 @@ const lv_img_dsc_t * ui_imgset_water_[2] = {&ui_img_water_1_png, &ui_img_water_2
 #endif
 
 ///////////////////// ANIMATIONS ////////////////////
-void Particle1_Animation(lv_obj_t * TargetObject, int delay)
-{
-    ui_anim_user_data_t * PropertyAnimation_0_user_data = lv_mem_alloc(sizeof(ui_anim_user_data_t));
-    PropertyAnimation_0_user_data->target = TargetObject;
-    PropertyAnimation_0_user_data->val = -1;
-    lv_anim_t PropertyAnimation_0;
-    lv_anim_init(&PropertyAnimation_0);
-    lv_anim_set_time(&PropertyAnimation_0, 19800);
-    lv_anim_set_user_data(&PropertyAnimation_0, PropertyAnimation_0_user_data);
-    lv_anim_set_custom_exec_cb(&PropertyAnimation_0, _ui_anim_callback_set_y);
-    lv_anim_set_values(&PropertyAnimation_0, 0, -120);
-    lv_anim_set_path_cb(&PropertyAnimation_0, lv_anim_path_linear);
-    lv_anim_set_delay(&PropertyAnimation_0, delay + 0);
-    lv_anim_set_deleted_cb(&PropertyAnimation_0, _ui_anim_callback_free_user_data);
-    lv_anim_set_playback_time(&PropertyAnimation_0, 0);
-    lv_anim_set_playback_delay(&PropertyAnimation_0, 0);
-    lv_anim_set_repeat_count(&PropertyAnimation_0, LV_ANIM_REPEAT_INFINITE);
-    lv_anim_set_repeat_delay(&PropertyAnimation_0, 0);
-    lv_anim_set_early_apply(&PropertyAnimation_0, false);
-    lv_anim_start(&PropertyAnimation_0);
-
-}
-void Particle2_Animation(lv_obj_t * TargetObject, int delay)
-{
-    ui_anim_user_data_t * PropertyAnimation_0_user_data = lv_mem_alloc(sizeof(ui_anim_user_data_t));
-    PropertyAnimation_0_user_data->target = TargetObject;
-    PropertyAnimation_0_user_data->val = -1;
-    lv_anim_t PropertyAnimation_0;
-    lv_anim_init(&PropertyAnimation_0);
-    lv_anim_set_time(&PropertyAnimation_0, 7920);
-    lv_anim_set_user_data(&PropertyAnimation_0, PropertyAnimation_0_user_data);
-    lv_anim_set_custom_exec_cb(&PropertyAnimation_0, _ui_anim_callback_set_y);
-    lv_anim_set_values(&PropertyAnimation_0, 0, -120);
-    lv_anim_set_path_cb(&PropertyAnimation_0, lv_anim_path_linear);
-    lv_anim_set_delay(&PropertyAnimation_0, delay + 0);
-    lv_anim_set_deleted_cb(&PropertyAnimation_0, _ui_anim_callback_free_user_data);
-    lv_anim_set_playback_time(&PropertyAnimation_0, 0);
-    lv_anim_set_playback_delay(&PropertyAnimation_0, 0);
-    lv_anim_set_repeat_count(&PropertyAnimation_0, LV_ANIM_REPEAT_INFINITE);
-    lv_anim_set_repeat_delay(&PropertyAnimation_0, 0);
-    lv_anim_set_early_apply(&PropertyAnimation_0, false);
-    lv_anim_set_get_value_cb(&PropertyAnimation_0, &_ui_anim_callback_get_y);
-    lv_anim_start(&PropertyAnimation_0);
-
-}
-void Particle3_Animation(lv_obj_t * TargetObject, int delay)
-{
-    ui_anim_user_data_t * PropertyAnimation_0_user_data = lv_mem_alloc(sizeof(ui_anim_user_data_t));
-    PropertyAnimation_0_user_data->target = TargetObject;
-    PropertyAnimation_0_user_data->val = -1;
-    lv_anim_t PropertyAnimation_0;
-    lv_anim_init(&PropertyAnimation_0);
-    lv_anim_set_time(&PropertyAnimation_0, 3960);
-    lv_anim_set_user_data(&PropertyAnimation_0, PropertyAnimation_0_user_data);
-    lv_anim_set_custom_exec_cb(&PropertyAnimation_0, _ui_anim_callback_set_y);
-    lv_anim_set_values(&PropertyAnimation_0, 0, -120);
-    lv_anim_set_path_cb(&PropertyAnimation_0, lv_anim_path_linear);
-    lv_anim_set_delay(&PropertyAnimation_0, delay + 0);
-    lv_anim_set_deleted_cb(&PropertyAnimation_0, _ui_anim_callback_free_user_data);
-    lv_anim_set_playback_time(&PropertyAnimation_0, 0);
-    lv_anim_set_playback_delay(&PropertyAnimation_0, 0);
-    lv_anim_set_repeat_count(&PropertyAnimation_0, LV_ANIM_REPEAT_INFINITE);
-    lv_anim_set_repeat_delay(&PropertyAnimation_0, 0);
-    lv_anim_set_early_apply(&PropertyAnimation_0, false);
-    lv_anim_set_get_value_cb(&PropertyAnimation_0, &_ui_anim_callback_get_y);
-    lv_anim_start(&PropertyAnimation_0);
-
-}
 void Fash_Animation(lv_obj_t * TargetObject, int delay)
 {
     ui_anim_user_data_t * PropertyAnimation_0_user_data = lv_mem_alloc(sizeof(ui_anim_user_data_t));
@@ -443,7 +366,7 @@ void ui_event_BTN_BG1(lv_event_t * e)
     }
     if(event_code == LV_EVENT_CLICKED) {
         _ui_flag_modify(ui_Group_Battery, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_Group_Map, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_Group_Info, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_Group_Pin, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_CLICKED) {
@@ -464,7 +387,7 @@ void ui_event_BTN_BG2(lv_event_t * e)
     }
     if(event_code == LV_EVENT_CLICKED) {
         _ui_flag_modify(ui_Group_Pin, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_Group_Map, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_Group_Info, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_Group_Battery, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_CLICKED) {
@@ -481,12 +404,12 @@ void ui_event_BTN_BG3(lv_event_t * e)
         _ui_state_modify(ui_BTN_BG1, LV_STATE_CHECKED, _UI_MODIFY_STATE_REMOVE);
         _ui_state_modify(ui_BTN_BG2, LV_STATE_CHECKED, _UI_MODIFY_STATE_REMOVE);
         _ui_state_modify(ui_BTN_BG3, LV_STATE_CHECKED, _UI_MODIFY_STATE_ADD);
-        On_Animation(ui_Group_Map, 0);
+        On_Animation(ui_Group_Info, 0);
     }
     if(event_code == LV_EVENT_CLICKED) {
         _ui_flag_modify(ui_Group_Pin, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_Group_Battery, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_Group_Map, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_Group_Info, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_CLICKED) {
         _ui_flag_modify(ui_BTN_BG1, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
@@ -500,6 +423,7 @@ void ui_event_Button_Pin1(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add1, 0);
+        pin1click(e);
     }
 }
 void ui_event_Button_Pin2(lv_event_t * e)
@@ -508,6 +432,7 @@ void ui_event_Button_Pin2(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add2, 0);
+        pin2click(e);
     }
 }
 void ui_event_Button_Pin3(lv_event_t * e)
@@ -516,6 +441,7 @@ void ui_event_Button_Pin3(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add3, 0);
+        pin3click(e);
     }
 }
 void ui_event_Button_Pin4(lv_event_t * e)
@@ -524,6 +450,7 @@ void ui_event_Button_Pin4(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add4, 0);
+        pin4click(e);
     }
 }
 void ui_event_Button_Pin5(lv_event_t * e)
@@ -532,6 +459,7 @@ void ui_event_Button_Pin5(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add5, 0);
+        pin5click(e);
     }
 }
 void ui_event_Button_Pin6(lv_event_t * e)
@@ -540,6 +468,7 @@ void ui_event_Button_Pin6(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add6, 0);
+        pin6click(e);
     }
 }
 void ui_event_Button_Pin7(lv_event_t * e)
@@ -548,6 +477,7 @@ void ui_event_Button_Pin7(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add7, 0);
+        pin7click(e);
     }
 }
 void ui_event_Button_Pin8(lv_event_t * e)
@@ -556,6 +486,7 @@ void ui_event_Button_Pin8(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add8, 0);
+        pin8click(e);
     }
 }
 void ui_event_Button_Pin9(lv_event_t * e)
@@ -564,6 +495,7 @@ void ui_event_Button_Pin9(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add9, 0);
+        pin9click(e);
     }
 }
 void ui_event_Button_PinX(lv_event_t * e)
@@ -572,6 +504,7 @@ void ui_event_Button_PinX(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add10, 0);
+        pinXclick(e);
     }
 }
 void ui_event_Button_Pin0(lv_event_t * e)
@@ -580,6 +513,7 @@ void ui_event_Button_Pin0(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add11, 0);
+        pin0click(e);
     }
 }
 void ui_event_Button_PinOK(lv_event_t * e)
@@ -588,6 +522,7 @@ void ui_event_Button_PinOK(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add12, 0);
+        pinOKclick(e);
     }
 }
 void ui_event_BTN_Settings(lv_event_t * e)
@@ -598,173 +533,100 @@ void ui_event_BTN_Settings(lv_event_t * e)
         _ui_screen_change(&ui_Settings_Wifi_Bus, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_Settings_Wifi_Bus_screen_init);
     }
 }
-void ui_event_Checkbox1(lv_event_t * e)
+void ui_event_chkONOFF(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    lv_obj_t * target = lv_event_get_target(e);
+    if(event_code == LV_EVENT_VALUE_CHANGED) {
+        updateThermostatState(e);
+    }
+}
+void ui_event_chkSoftstart1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_dpdSoftstart1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_dpdSoftstart1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
-void ui_event_Checkbox2(lv_event_t * e)
+void ui_event_chkSoftstart2(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_dpdSoftstart2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_dpdSoftstart2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
-void ui_event_Checkbox3(lv_event_t * e)
+void ui_event_chkSoftstart3(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_dpdSoftstart3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_dpdSoftstart3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
-void ui_event_Checkbox4(lv_event_t * e)
+void ui_event_chkSoftstart4(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_dpdSoftstart4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_dpdSoftstart4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
-void ui_event_Checkbox5(lv_event_t * e)
+void ui_event_chkSoftstart5(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_dpdSoftstart5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_dpdSoftstart5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
-void ui_event_Checkbox6(lv_event_t * e)
+void ui_event_chkSoftstart6(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_dpdSoftstart6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_dpdSoftstart6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
-void ui_event_Checkbox7(lv_event_t * e)
+void ui_event_chkSoftstart7(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_dpdSoftstart7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_dpdSoftstart7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
-void ui_event_Checkbox8(lv_event_t * e)
+void ui_event_chkSoftstart8(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_dpdSoftstart8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
     }
     if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_Dropdown8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    }
-}
-void ui_event_Keyboard1(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-    if(event_code == LV_EVENT_READY) {
-        _ui_flag_modify(ui_Keyboard1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    }
-}
-void ui_event_Checkbox9(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-    if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_lblCONNECT, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_btnCONNECT, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_lblSEARCH, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_lblPASSWORD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_lblNAME, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_txtPASSWORD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_txtUSERNAME, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_btnSEARCH, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_dplWIFILIST, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_lblCONNECTED, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-    }
-    if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_flag_modify(ui_lblCONNECT, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_btnCONNECT, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_lblSEARCH, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_lblPASSWORD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_lblNAME, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_txtPASSWORD, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_txtUSERNAME, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_btnSEARCH, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_dplWIFILIST, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_lblCONNECTED, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    }
-}
-void ui_event_btnCONNECT(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-    if(event_code == LV_EVENT_CLICKED) {
-        btnConnectClicked(e);
-    }
-}
-void ui_event_txtPASSWORD(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-    if(event_code == LV_EVENT_FOCUSED) {
-        _ui_keyboard_set_target(ui_Keyboard1,  ui_txtPASSWORD);
-    }
-    if(event_code == LV_EVENT_FOCUSED) {
-        _ui_flag_modify(ui_Keyboard1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-    }
-    if(event_code == LV_EVENT_DEFOCUSED) {
-        _ui_flag_modify(ui_Keyboard1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    }
-}
-void ui_event_txtUSERNAME(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-    if(event_code == LV_EVENT_FOCUSED) {
-        _ui_flag_modify(ui_Keyboard1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-    }
-    if(event_code == LV_EVENT_DEFOCUSED) {
-        _ui_flag_modify(ui_Keyboard1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    }
-    if(event_code == LV_EVENT_FOCUSED) {
-        _ui_keyboard_set_target(ui_Keyboard1,  ui_txtUSERNAME);
-    }
-}
-void ui_event_btnSEARCH(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-    if(event_code == LV_EVENT_CLICKED) {
-        btnSearchClicked(e);
+        _ui_flag_modify(ui_dpdSoftstart8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
 void ui_event_BTN_Settings1(lv_event_t * e)
@@ -773,6 +635,31 @@ void ui_event_BTN_Settings1(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_Home, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_Home_screen_init);
+        updateSettings(e);
+    }
+}
+void ui_event_sldBacklightHigh(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    lv_obj_t * target = lv_event_get_target(e);
+    if(event_code == LV_EVENT_VALUE_CHANGED) {
+        updateBacklightHigh(e);
+    }
+}
+void ui_event_sldHysteresis(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    lv_obj_t * target = lv_event_get_target(e);
+    if(event_code == LV_EVENT_VALUE_CHANGED) {
+        updateHysteresis(e);
+    }
+}
+void ui_event_sldSensorOffset(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    lv_obj_t * target = lv_event_get_target(e);
+    if(event_code == LV_EVENT_VALUE_CHANGED) {
+        updateSensorOffset(e);
     }
 }
 void ui_event____initial_actions0(lv_event_t * e)
@@ -782,9 +669,7 @@ void ui_event____initial_actions0(lv_event_t * e)
     if(event_code == LV_EVENT_SCREEN_LOAD_START) {
         Wave1_Animation(ui_Wave1, 0);
         Wave2_Animation(ui_Wave2, 0);
-        Particle3_Animation(ui_Image_Particle3, 0);
-        Particle2_Animation(ui_Image_Particle2, 0);
-        Particle1_Animation(ui_Image_Particle1, 0);
+        initScreen(e);
     }
 }
 

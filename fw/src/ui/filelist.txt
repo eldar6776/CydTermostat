@@ -24,7 +24,7 @@ images/ui_img_icn_x_png.c
 images/ui_img_icn_ok_png.c
 images/ui_img_fire_png.c
 images/ui_img_settings_corner_png.c
-images/ui_img_wifi_png.c
+images/ui_img_icn_settings_png.c
 images/ui_img_settings_bg_png.c
 images/ui_img_icn_x2_png.c
 images/ui_img_ebike_s1_png.c
