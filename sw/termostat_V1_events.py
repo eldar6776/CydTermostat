@@ -114,3 +114,7 @@ def pinOKclick(event_struct):
 def initScreen(event_struct):
     return
 
+
+def updateSetpoint(event_struct):
+    return
+

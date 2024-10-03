@@ -124,14 +124,15 @@ void ui_event_Button_PinOK(lv_event_t * e);
 lv_obj_t * ui_Button_PinOK;
 lv_obj_t * ui_Pin_Add12;
 lv_obj_t * ui_Image_Ok;
+lv_obj_t * ui_txtPin;
 lv_obj_t * ui_Group_Info;
 lv_obj_t * ui_Group_Title3;
 lv_obj_t * ui_Title_BG3;
 lv_obj_t * ui_Label_Unlock1;
 lv_obj_t * ui_Image3;
-lv_obj_t * ui_lblThermostatState;
 lv_obj_t * ui_lblHeatingStatus;
-lv_obj_t * ui_lblErrorSoftStart;
+void ui_event_chkONOFF(lv_event_t * e);
+lv_obj_t * ui_chkONOFF;
 lv_obj_t * ui_Speed_Number_2;
 lv_obj_t * ui_Speed_Number_1;
 lv_obj_t * ui_Menu;
@@ -139,9 +140,9 @@ void ui_event_BTN_Settings(lv_event_t * e);
 lv_obj_t * ui_BTN_Settings;
 lv_obj_t * ui_lblSETPOINT;
 lv_obj_t * ui_lblROOM;
-void ui_event_chkONOFF(lv_event_t * e);
-lv_obj_t * ui_chkONOFF;
-lv_obj_t * ui_txtPin;
+lv_obj_t * ui_lblDate;
+lv_obj_t * ui_lblTime;
+lv_obj_t * ui_imgWiFi;
 
 
 // SCREEN: ui_Settings_Wifi_Bus
@@ -195,9 +196,17 @@ lv_obj_t * ui_valSensorOffset;
 lv_obj_t * ui_lblCelsious2;
 lv_obj_t * ui_valOffsetWithTemperature;
 lv_obj_t * ui_lblCelsious3;
-lv_obj_t * ui_lblRoomTemperature;
 lv_obj_t * ui_chkWifi;
 lv_obj_t * ui_lblWiFiSettings;
+lv_obj_t * ui_chkScreensaver;
+lv_obj_t * ui_Dropdown1;
+
+
+// SCREEN: ui_Screensaver
+void ui_Screensaver_screen_init(void);
+lv_obj_t * ui_Screensaver;
+lv_obj_t * ui_Label8;
+lv_obj_t * ui_Label9;
 void ui_event____initial_actions0(lv_event_t * e);
 lv_obj_t * ui____initial_actions0;
 const lv_img_dsc_t * ui_imgset_ebike_s[4] = {&ui_img_ebike_s1_png, &ui_img_ebike_s2_png, &ui_img_ebike_s3_png, &ui_img_ebike_s4_png};
@@ -352,6 +361,7 @@ void ui_event_Slider_Speed(lv_event_t * e)
     if(event_code == LV_EVENT_VALUE_CHANGED) {
         _ui_slider_set_text_value(ui_Speed_Number_1, target, "", "");
         _ui_slider_set_text_value(ui_Speed_Number_2, target, "", "");
+        updateSetpoint(e);
     }
 }
 void ui_event_BTN_BG1(lv_event_t * e)
@@ -525,20 +535,20 @@ void ui_event_Button_PinOK(lv_event_t * e)
         pinOKclick(e);
     }
 }
-void ui_event_BTN_Settings(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_Settings_Wifi_Bus, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_Settings_Wifi_Bus_screen_init);
-    }
-}
 void ui_event_chkONOFF(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_VALUE_CHANGED) {
         updateThermostatState(e);
+    }
+}
+void ui_event_BTN_Settings(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    lv_obj_t * target = lv_event_get_target(e);
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_Settings_Wifi_Bus, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_Settings_Wifi_Bus_screen_init);
     }
 }
 void ui_event_chkSoftstart1(lv_event_t * e)
@@ -682,6 +692,7 @@ void ui_init(void)
     lv_disp_set_theme(dispp, theme);
     ui_Home_screen_init();
     ui_Settings_Wifi_Bus_screen_init();
+    ui_Screensaver_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_obj_add_event_cb(ui____initial_actions0, ui_event____initial_actions0, LV_EVENT_ALL, NULL);
 

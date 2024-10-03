@@ -1,5 +1,6 @@
 SET(SOURCES screens/ui_Home.c
     screens/ui_Settings_Wifi_Bus.c
+    screens/ui_Screensaver.c
     ui.c
     components/ui_comp_hook.c
     ui_helpers.c
@@ -25,6 +26,7 @@ SET(SOURCES screens/ui_Home.c
     images/ui_img_fire_png.c
     images/ui_img_settings_corner_png.c
     images/ui_img_icn_settings_png.c
+    images/ui_img_wifi_png.c
     images/ui_img_settings_bg_png.c
     images/ui_img_icn_x2_png.c
     images/ui_img_ebike_s1_png.c
@@ -35,6 +37,7 @@ SET(SOURCES screens/ui_Home.c
     fonts/ui_font_Big.c
     fonts/ui_font_Medium.c
     fonts/ui_font_Number.c
-    fonts/ui_font_Small.c)
+    fonts/ui_font_Small.c
+    fonts/ui_font_Montserrat48.c)
 
 add_library(ui ${SOURCES})

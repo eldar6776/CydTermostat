@@ -130,14 +130,15 @@ void ui_event_Button_PinOK(lv_event_t * e);
 extern lv_obj_t * ui_Button_PinOK;
 extern lv_obj_t * ui_Pin_Add12;
 extern lv_obj_t * ui_Image_Ok;
+extern lv_obj_t * ui_txtPin;
 extern lv_obj_t * ui_Group_Info;
 extern lv_obj_t * ui_Group_Title3;
 extern lv_obj_t * ui_Title_BG3;
 extern lv_obj_t * ui_Label_Unlock1;
 extern lv_obj_t * ui_Image3;
-extern lv_obj_t * ui_lblThermostatState;
 extern lv_obj_t * ui_lblHeatingStatus;
-extern lv_obj_t * ui_lblErrorSoftStart;
+void ui_event_chkONOFF(lv_event_t * e);
+extern lv_obj_t * ui_chkONOFF;
 extern lv_obj_t * ui_Speed_Number_2;
 extern lv_obj_t * ui_Speed_Number_1;
 extern lv_obj_t * ui_Menu;
@@ -145,9 +146,9 @@ void ui_event_BTN_Settings(lv_event_t * e);
 extern lv_obj_t * ui_BTN_Settings;
 extern lv_obj_t * ui_lblSETPOINT;
 extern lv_obj_t * ui_lblROOM;
-void ui_event_chkONOFF(lv_event_t * e);
-extern lv_obj_t * ui_chkONOFF;
-extern lv_obj_t * ui_txtPin;
+extern lv_obj_t * ui_lblDate;
+extern lv_obj_t * ui_lblTime;
+extern lv_obj_t * ui_imgWiFi;
 // SCREEN: ui_Settings_Wifi_Bus
 void ui_Settings_Wifi_Bus_screen_init(void);
 extern lv_obj_t * ui_Settings_Wifi_Bus;
@@ -199,9 +200,15 @@ extern lv_obj_t * ui_valSensorOffset;
 extern lv_obj_t * ui_lblCelsious2;
 extern lv_obj_t * ui_valOffsetWithTemperature;
 extern lv_obj_t * ui_lblCelsious3;
-extern lv_obj_t * ui_lblRoomTemperature;
 extern lv_obj_t * ui_chkWifi;
 extern lv_obj_t * ui_lblWiFiSettings;
+extern lv_obj_t * ui_chkScreensaver;
+extern lv_obj_t * ui_Dropdown1;
+// SCREEN: ui_Screensaver
+void ui_Screensaver_screen_init(void);
+extern lv_obj_t * ui_Screensaver;
+extern lv_obj_t * ui_Label8;
+extern lv_obj_t * ui_Label9;
 void ui_event____initial_actions0(lv_event_t * e);
 extern lv_obj_t * ui____initial_actions0;
 
@@ -228,6 +235,7 @@ LV_IMG_DECLARE(ui_img_icn_ok_png);    // assets/icn_ok.png
 LV_IMG_DECLARE(ui_img_fire_png);    // assets/fire.png
 LV_IMG_DECLARE(ui_img_settings_corner_png);    // assets/settings_corner.png
 LV_IMG_DECLARE(ui_img_icn_settings_png);    // assets/icn_settings.png
+LV_IMG_DECLARE(ui_img_wifi_png);    // assets/wifi.png
 LV_IMG_DECLARE(ui_img_settings_bg_png);    // assets/settings_bg.png
 LV_IMG_DECLARE(ui_img_icn_x2_png);    // assets/icn_x2.png
 LV_IMG_DECLARE(ui_img_ebike_s1_png);    // assets/ebike_s1.png
@@ -241,6 +249,7 @@ LV_FONT_DECLARE(ui_font_Big);
 LV_FONT_DECLARE(ui_font_Medium);
 LV_FONT_DECLARE(ui_font_Number);
 LV_FONT_DECLARE(ui_font_Small);
+LV_FONT_DECLARE(ui_font_Montserrat48);
 
 
 

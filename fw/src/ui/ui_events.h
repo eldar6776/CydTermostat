@@ -11,6 +11,7 @@ extern "C" {
 #endif
 
 void initScreen(lv_event_t * e);
+void updateSetpoint(lv_event_t * e);
 void pin1click(lv_event_t * e);
 void pin2click(lv_event_t * e);
 void pin3click(lv_event_t * e);

@@ -54,6 +54,9 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     lv_obj_set_align(ui_chkSoftstart1, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_chkSoftstart1, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
+    lv_obj_set_style_bg_color(ui_chkSoftstart1, lv_color_hex(0x00FF00), LV_PART_INDICATOR | LV_STATE_CHECKED);
+    lv_obj_set_style_bg_opa(ui_chkSoftstart1, 255, LV_PART_INDICATOR | LV_STATE_CHECKED);
+
     ui_chkSoftstart2 = lv_checkbox_create(ui_Chart_Group);
     lv_checkbox_set_text(ui_chkSoftstart2, " SOFTSTART2");
     lv_obj_set_width(ui_chkSoftstart2, LV_SIZE_CONTENT);   /// 1
@@ -62,6 +65,9 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     lv_obj_set_y(ui_chkSoftstart2, -40);
     lv_obj_set_align(ui_chkSoftstart2, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_chkSoftstart2, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+
+    lv_obj_set_style_bg_color(ui_chkSoftstart2, lv_color_hex(0x00FF00), LV_PART_INDICATOR | LV_STATE_CHECKED);
+    lv_obj_set_style_bg_opa(ui_chkSoftstart2, 255, LV_PART_INDICATOR | LV_STATE_CHECKED);
 
     ui_chkSoftstart3 = lv_checkbox_create(ui_Chart_Group);
     lv_checkbox_set_text(ui_chkSoftstart3, " SOFTSTART3");
@@ -72,6 +78,9 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     lv_obj_set_align(ui_chkSoftstart3, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_chkSoftstart3, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
+    lv_obj_set_style_bg_color(ui_chkSoftstart3, lv_color_hex(0x00FF00), LV_PART_INDICATOR | LV_STATE_CHECKED);
+    lv_obj_set_style_bg_opa(ui_chkSoftstart3, 255, LV_PART_INDICATOR | LV_STATE_CHECKED);
+
     ui_chkSoftstart4 = lv_checkbox_create(ui_Chart_Group);
     lv_checkbox_set_text(ui_chkSoftstart4, " SOFTSTART4");
     lv_obj_set_width(ui_chkSoftstart4, LV_SIZE_CONTENT);   /// 1
@@ -80,6 +89,9 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     lv_obj_set_y(ui_chkSoftstart4, 7);
     lv_obj_set_align(ui_chkSoftstart4, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_chkSoftstart4, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+
+    lv_obj_set_style_bg_color(ui_chkSoftstart4, lv_color_hex(0x00FF00), LV_PART_INDICATOR | LV_STATE_CHECKED);
+    lv_obj_set_style_bg_opa(ui_chkSoftstart4, 255, LV_PART_INDICATOR | LV_STATE_CHECKED);
 
     ui_chkSoftstart5 = lv_checkbox_create(ui_Chart_Group);
     lv_checkbox_set_text(ui_chkSoftstart5, " SOFTSTART5");
@@ -90,6 +102,9 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     lv_obj_set_align(ui_chkSoftstart5, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_chkSoftstart5, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
+    lv_obj_set_style_bg_color(ui_chkSoftstart5, lv_color_hex(0x00FF00), LV_PART_INDICATOR | LV_STATE_CHECKED);
+    lv_obj_set_style_bg_opa(ui_chkSoftstart5, 255, LV_PART_INDICATOR | LV_STATE_CHECKED);
+
     ui_chkSoftstart6 = lv_checkbox_create(ui_Chart_Group);
     lv_checkbox_set_text(ui_chkSoftstart6, " SOFTSTART6");
     lv_obj_set_width(ui_chkSoftstart6, LV_SIZE_CONTENT);   /// 1
@@ -98,6 +113,9 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     lv_obj_set_y(ui_chkSoftstart6, 55);
     lv_obj_set_align(ui_chkSoftstart6, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_chkSoftstart6, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+
+    lv_obj_set_style_bg_color(ui_chkSoftstart6, lv_color_hex(0x00FF00), LV_PART_INDICATOR | LV_STATE_CHECKED);
+    lv_obj_set_style_bg_opa(ui_chkSoftstart6, 255, LV_PART_INDICATOR | LV_STATE_CHECKED);
 
     ui_chkSoftstart7 = lv_checkbox_create(ui_Chart_Group);
     lv_checkbox_set_text(ui_chkSoftstart7, " SOFTSTART7");
@@ -108,6 +126,9 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     lv_obj_set_align(ui_chkSoftstart7, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_chkSoftstart7, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
+    lv_obj_set_style_bg_color(ui_chkSoftstart7, lv_color_hex(0x00FF00), LV_PART_INDICATOR | LV_STATE_CHECKED);
+    lv_obj_set_style_bg_opa(ui_chkSoftstart7, 255, LV_PART_INDICATOR | LV_STATE_CHECKED);
+
     ui_chkSoftstart8 = lv_checkbox_create(ui_Chart_Group);
     lv_checkbox_set_text(ui_chkSoftstart8, " SOFTSTART8");
     lv_obj_set_width(ui_chkSoftstart8, LV_SIZE_CONTENT);   /// 1
@@ -116,6 +137,9 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     lv_obj_set_y(ui_chkSoftstart8, 103);
     lv_obj_set_align(ui_chkSoftstart8, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_chkSoftstart8, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+
+    lv_obj_set_style_bg_color(ui_chkSoftstart8, lv_color_hex(0x00FF00), LV_PART_INDICATOR | LV_STATE_CHECKED);
+    lv_obj_set_style_bg_opa(ui_chkSoftstart8, 255, LV_PART_INDICATOR | LV_STATE_CHECKED);
 
     ui_dpdSoftstart1 = lv_dropdown_create(ui_Chart_Group);
     lv_dropdown_set_options(ui_dpdSoftstart1, "12VAC\n16VAC\n24VAC\n36VAC");
@@ -219,7 +243,7 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     ui_lblThermostatSettings = lv_label_create(ui_Settings_Wifi_Bus);
     lv_obj_set_width(ui_lblThermostatSettings, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_lblThermostatSettings, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_lblThermostatSettings, -276);
+    lv_obj_set_x(ui_lblThermostatSettings, -277);
     lv_obj_set_y(ui_lblThermostatSettings, 39);
     lv_obj_set_align(ui_lblThermostatSettings, LV_ALIGN_TOP_RIGHT);
     lv_label_set_text(ui_lblThermostatSettings, "Thermostat Settings");
@@ -248,7 +272,7 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     ui_lblHysteresis = lv_label_create(ui_Settings_Wifi_Bus);
     lv_obj_set_width(ui_lblHysteresis, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_lblHysteresis, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_lblHysteresis, -182);
+    lv_obj_set_x(ui_lblHysteresis, -183);
     lv_obj_set_y(ui_lblHysteresis, -69);
     lv_obj_set_align(ui_lblHysteresis, LV_ALIGN_CENTER);
     lv_label_set_text(ui_lblHysteresis, "Hysteresis");
@@ -256,16 +280,16 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     ui_lblSensorOffset = lv_label_create(ui_Settings_Wifi_Bus);
     lv_obj_set_width(ui_lblSensorOffset, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_lblSensorOffset, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_lblSensorOffset, -170);
-    lv_obj_set_y(ui_lblSensorOffset, -35);
+    lv_obj_set_x(ui_lblSensorOffset, -171);
+    lv_obj_set_y(ui_lblSensorOffset, -36);
     lv_obj_set_align(ui_lblSensorOffset, LV_ALIGN_CENTER);
     lv_label_set_text(ui_lblSensorOffset, "Sensor Offset");
 
     ui_lblDisplaySettings = lv_label_create(ui_Settings_Wifi_Bus);
     lv_obj_set_width(ui_lblDisplaySettings, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_lblDisplaySettings, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_lblDisplaySettings, -310);
-    lv_obj_set_y(ui_lblDisplaySettings, 151);
+    lv_obj_set_x(ui_lblDisplaySettings, -313);
+    lv_obj_set_y(ui_lblDisplaySettings, 137);
     lv_obj_set_align(ui_lblDisplaySettings, LV_ALIGN_TOP_RIGHT);
     lv_label_set_text(ui_lblDisplaySettings, "Display Settings");
     lv_obj_set_style_text_color(ui_lblDisplaySettings, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -277,10 +301,10 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     lv_slider_set_value(ui_sldBacklightHigh, 70, LV_ANIM_OFF);
     if(lv_slider_get_mode(ui_sldBacklightHigh) == LV_SLIDER_MODE_RANGE) lv_slider_set_left_value(ui_sldBacklightHigh, 0,
                                                                                                      LV_ANIM_OFF);
-    lv_obj_set_width(ui_sldBacklightHigh, 150);
+    lv_obj_set_width(ui_sldBacklightHigh, 102);
     lv_obj_set_height(ui_sldBacklightHigh, 10);
-    lv_obj_set_x(ui_sldBacklightHigh, -142);
-    lv_obj_set_y(ui_sldBacklightHigh, 63);
+    lv_obj_set_x(ui_sldBacklightHigh, -167);
+    lv_obj_set_y(ui_sldBacklightHigh, 54);
     lv_obj_set_align(ui_sldBacklightHigh, LV_ALIGN_CENTER);
 
 
@@ -311,8 +335,8 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     ui_lblBacklightHigh = lv_label_create(ui_Settings_Wifi_Bus);
     lv_obj_set_width(ui_lblBacklightHigh, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_lblBacklightHigh, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_lblBacklightHigh, -163);
-    lv_obj_set_y(ui_lblBacklightHigh, 46);
+    lv_obj_set_x(ui_lblBacklightHigh, -167);
+    lv_obj_set_y(ui_lblBacklightHigh, 34);
     lv_obj_set_align(ui_lblBacklightHigh, LV_ALIGN_CENTER);
     lv_label_set_text(ui_lblBacklightHigh, "Backlight High");
 
@@ -364,33 +388,49 @@ void ui_Settings_Wifi_Bus_screen_init(void)
     lv_obj_set_align(ui_lblCelsious3, LV_ALIGN_CENTER);
     lv_label_set_text(ui_lblCelsious3, "°C");
 
-    ui_lblRoomTemperature = lv_label_create(ui_Settings_Wifi_Bus);
-    lv_obj_set_width(ui_lblRoomTemperature, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_lblRoomTemperature, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_lblRoomTemperature, -148);
-    lv_obj_set_y(ui_lblRoomTemperature, -3);
-    lv_obj_set_align(ui_lblRoomTemperature, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_lblRoomTemperature, "Room Temperature");
-
     ui_chkWifi = lv_checkbox_create(ui_Settings_Wifi_Bus);
     lv_checkbox_set_text(ui_chkWifi, " WiFi enable");
     lv_obj_set_width(ui_chkWifi, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_chkWifi, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_chkWifi, -160);
-    lv_obj_set_y(ui_chkWifi, 115);
+    lv_obj_set_x(ui_chkWifi, -165);
+    lv_obj_set_y(ui_chkWifi, 106);
     lv_obj_set_align(ui_chkWifi, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_chkWifi, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+
+    lv_obj_set_style_bg_color(ui_chkWifi, lv_color_hex(0x00FF00), LV_PART_INDICATOR | LV_STATE_CHECKED);
+    lv_obj_set_style_bg_opa(ui_chkWifi, 255, LV_PART_INDICATOR | LV_STATE_CHECKED);
 
     ui_lblWiFiSettings = lv_label_create(ui_Settings_Wifi_Bus);
     lv_obj_set_width(ui_lblWiFiSettings, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_lblWiFiSettings, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_lblWiFiSettings, -337);
-    lv_obj_set_y(ui_lblWiFiSettings, 218);
+    lv_obj_set_x(ui_lblWiFiSettings, -340);
+    lv_obj_set_y(ui_lblWiFiSettings, 205);
     lv_obj_set_align(ui_lblWiFiSettings, LV_ALIGN_TOP_RIGHT);
     lv_label_set_text(ui_lblWiFiSettings, "WIFI Settings");
     lv_obj_set_style_text_color(ui_lblWiFiSettings, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_lblWiFiSettings, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_lblWiFiSettings, &ui_font_Big, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_chkScreensaver = lv_checkbox_create(ui_Settings_Wifi_Bus);
+    lv_checkbox_set_text(ui_chkScreensaver, " Screensaver");
+    lv_obj_set_width(ui_chkScreensaver, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_chkScreensaver, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_chkScreensaver, -41);
+    lv_obj_set_y(ui_chkScreensaver, 51);
+    lv_obj_set_align(ui_chkScreensaver, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_chkScreensaver, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+
+    ui_Dropdown1 = lv_dropdown_create(ui_Settings_Wifi_Bus);
+    lv_dropdown_set_options(ui_Dropdown1,
+                            "GMT+14:00\n	GMT+13:00\n	GMT+12:00\n	GMT+11:00\n	GMT+10:00\n	GMT+9:00\n	GMT+8:00\n	GMT+7:00\n	GMT+6:00\n	GMT+5:00\n	GMT+4:00\n	GMT+3:00\n	GMT+2:00\n	GMT+1:00\n	GMT+0:00\n	GMT-1:00\n	GMT-2:00\n	GMT-3:00\n	GMT-4:00\n	GMT-5:00\n	GMT-6:00\n	GMT-7:00\n	GMT-8:00\n	GMT-9:00\n	GMT-10:00\n	GMT-11:00\n	GMT-12:00");
+    lv_obj_set_width(ui_Dropdown1, 96);
+    lv_obj_set_height(ui_Dropdown1, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_Dropdown1, -51);
+    lv_obj_set_y(ui_Dropdown1, 105);
+    lv_obj_set_align(ui_Dropdown1, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Dropdown1, LV_OBJ_FLAG_OVERFLOW_VISIBLE | LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+
+
 
     lv_obj_add_event_cb(ui_chkSoftstart1, ui_event_chkSoftstart1, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_chkSoftstart2, ui_event_chkSoftstart2, LV_EVENT_ALL, NULL);

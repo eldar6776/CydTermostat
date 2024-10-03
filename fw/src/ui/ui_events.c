@@ -136,3 +136,11 @@ void initScreen(lv_event_t * e)
 {
 	// Your code here
 }
+
+void updateSetpoint(lv_event_t * e)
+{
+	int v = lv_slider_get_value(ui_Slider_Speed);
+	setpointTemp = v / 1.0;
+	int n = sprintf(printlog, "Setpoint %+0.1f", setpointTemp);
+	printrd = true;
+}
