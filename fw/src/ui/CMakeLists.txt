@@ -27,6 +27,8 @@ SET(SOURCES screens/ui_Home.c
     images/ui_img_settings_corner_png.c
     images/ui_img_icn_settings_png.c
     images/ui_img_wifi_png.c
+    images/ui_img_icn_charge_png.c
+    images/ui_img_thoff_png.c
     images/ui_img_settings_bg_png.c
     images/ui_img_icn_x2_png.c
     images/ui_img_ebike_s1_png.c
@@ -36,8 +38,8 @@ SET(SOURCES screens/ui_Home.c
     ui_temporary_image.c
     fonts/ui_font_Big.c
     fonts/ui_font_Medium.c
+    fonts/ui_font_Montserrat48.c
     fonts/ui_font_Number.c
-    fonts/ui_font_Small.c
-    fonts/ui_font_Montserrat48.c)
+    fonts/ui_font_Small.c)
 
 add_library(ui ${SOURCES})

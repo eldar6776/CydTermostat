@@ -25,7 +25,6 @@ void ui_Home_screen_init(void);
 extern lv_obj_t * ui_Home;
 extern lv_obj_t * ui_BG1;
 extern lv_obj_t * ui_lblCESIOUS;
-extern lv_obj_t * ui_lblDEGREE;
 void ui_event_Slider_Speed(lv_event_t * e);
 extern lv_obj_t * ui_Slider_Speed;
 extern lv_obj_t * ui_Slider_Battery;
@@ -137,18 +136,18 @@ extern lv_obj_t * ui_Title_BG3;
 extern lv_obj_t * ui_Label_Unlock1;
 extern lv_obj_t * ui_Image3;
 extern lv_obj_t * ui_lblHeatingStatus;
-void ui_event_chkONOFF(lv_event_t * e);
-extern lv_obj_t * ui_chkONOFF;
+extern lv_obj_t * ui_Label1;
 extern lv_obj_t * ui_Speed_Number_2;
 extern lv_obj_t * ui_Speed_Number_1;
 extern lv_obj_t * ui_Menu;
 void ui_event_BTN_Settings(lv_event_t * e);
 extern lv_obj_t * ui_BTN_Settings;
 extern lv_obj_t * ui_lblSETPOINT;
-extern lv_obj_t * ui_lblROOM;
 extern lv_obj_t * ui_lblDate;
 extern lv_obj_t * ui_lblTime;
 extern lv_obj_t * ui_imgWiFi;
+extern lv_obj_t * ui_imgOn;
+extern lv_obj_t * ui_imgOff;
 // SCREEN: ui_Settings_Wifi_Bus
 void ui_Settings_Wifi_Bus_screen_init(void);
 extern lv_obj_t * ui_Settings_Wifi_Bus;
@@ -236,6 +235,8 @@ LV_IMG_DECLARE(ui_img_fire_png);    // assets/fire.png
 LV_IMG_DECLARE(ui_img_settings_corner_png);    // assets/settings_corner.png
 LV_IMG_DECLARE(ui_img_icn_settings_png);    // assets/icn_settings.png
 LV_IMG_DECLARE(ui_img_wifi_png);    // assets/wifi.png
+LV_IMG_DECLARE(ui_img_icn_charge_png);    // assets/icn_charge.png
+LV_IMG_DECLARE(ui_img_thoff_png);    // assets/thOff.png
 LV_IMG_DECLARE(ui_img_settings_bg_png);    // assets/settings_bg.png
 LV_IMG_DECLARE(ui_img_icn_x2_png);    // assets/icn_x2.png
 LV_IMG_DECLARE(ui_img_ebike_s1_png);    // assets/ebike_s1.png
@@ -247,9 +248,9 @@ LV_IMG_DECLARE(ui_img_ebike_s4_png);    // assets/ebike_s4.png
 
 LV_FONT_DECLARE(ui_font_Big);
 LV_FONT_DECLARE(ui_font_Medium);
+LV_FONT_DECLARE(ui_font_Montserrat48);
 LV_FONT_DECLARE(ui_font_Number);
 LV_FONT_DECLARE(ui_font_Small);
-LV_FONT_DECLARE(ui_font_Montserrat48);
 
 
 

@@ -24,7 +24,6 @@ void pin9click(lv_event_t * e);
 void pinXclick(lv_event_t * e);
 void pin0click(lv_event_t * e);
 void pinOKclick(lv_event_t * e);
-void updateThermostatState(lv_event_t * e);
 void updateSettings(lv_event_t * e);
 void updateBacklightHigh(lv_event_t * e);
 void updateHysteresis(lv_event_t * e);

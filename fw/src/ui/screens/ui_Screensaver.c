@@ -28,5 +28,4 @@ void ui_Screensaver_screen_init(void)
     lv_obj_set_align(ui_Label9, LV_ALIGN_CENTER);
     lv_label_set_text(ui_Label9, "18:52:39\n");
     lv_obj_set_style_text_font(ui_Label9, &ui_font_Montserrat48, LV_PART_MAIN | LV_STATE_DEFAULT);
-
 }

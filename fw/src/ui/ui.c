@@ -19,7 +19,6 @@ void ui_Home_screen_init(void);
 lv_obj_t * ui_Home;
 lv_obj_t * ui_BG1;
 lv_obj_t * ui_lblCESIOUS;
-lv_obj_t * ui_lblDEGREE;
 void ui_event_Slider_Speed(lv_event_t * e);
 lv_obj_t * ui_Slider_Speed;
 lv_obj_t * ui_Slider_Battery;
@@ -131,18 +130,18 @@ lv_obj_t * ui_Title_BG3;
 lv_obj_t * ui_Label_Unlock1;
 lv_obj_t * ui_Image3;
 lv_obj_t * ui_lblHeatingStatus;
-void ui_event_chkONOFF(lv_event_t * e);
-lv_obj_t * ui_chkONOFF;
+lv_obj_t * ui_Label1;
 lv_obj_t * ui_Speed_Number_2;
 lv_obj_t * ui_Speed_Number_1;
 lv_obj_t * ui_Menu;
 void ui_event_BTN_Settings(lv_event_t * e);
 lv_obj_t * ui_BTN_Settings;
 lv_obj_t * ui_lblSETPOINT;
-lv_obj_t * ui_lblROOM;
 lv_obj_t * ui_lblDate;
 lv_obj_t * ui_lblTime;
 lv_obj_t * ui_imgWiFi;
+lv_obj_t * ui_imgOn;
+lv_obj_t * ui_imgOff;
 
 
 // SCREEN: ui_Settings_Wifi_Bus
@@ -533,14 +532,6 @@ void ui_event_Button_PinOK(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         Fash_Animation(ui_Pin_Add12, 0);
         pinOKclick(e);
-    }
-}
-void ui_event_chkONOFF(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-    if(event_code == LV_EVENT_VALUE_CHANGED) {
-        updateThermostatState(e);
     }
 }
 void ui_event_BTN_Settings(lv_event_t * e)

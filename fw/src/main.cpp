@@ -210,12 +210,12 @@ String processor(const String &var)
     }
     else if (var == "MIN_TEMP")
     {
-        //MIN_TEMP = setpointTemp - roomTemp;
+        // MIN_TEMP = setpointTemp - roomTemp;
         return String(setpointTemp - roomTemp, 1);
     }
     else if (var == "MAX_TEMP")
     {
-        //MAX_TEMP = setpointTemp;
+        // MAX_TEMP = setpointTemp;
         return String(setpointTemp, 1);
     }
     else if (var == "LOWER_TEMP")
@@ -281,7 +281,7 @@ void onTemp(AsyncWebServerRequest *request)
 void onReset(AsyncWebServerRequest *request)
 {
     char txt[16];
-    memset(txt,0,sizeof(txt));
+    memset(txt, 0, sizeof(txt));
     // No point in writing in the EEPROM if it's never been done before...
     // if (tempRange.initialized)
     //{
@@ -289,9 +289,9 @@ void onReset(AsyncWebServerRequest *request)
     //    EEPROM.commit();
     // }
 
-    //tempRange.initialized = false;
-    //tempRange.lower = MIN_TEMP;
-    //tempRange.upper = MAX_TEMP;
+    // tempRange.initialized = false;
+    // tempRange.lower = MIN_TEMP;
+    // tempRange.upper = MAX_TEMP;
 
     // Serial.println(F("\nFactory reset\n"));
     // Serial.print(F("-> Temperature range is set to "));
@@ -301,13 +301,12 @@ void onReset(AsyncWebServerRequest *request)
     if (setpointTemp >= 10.0)
         setpointTemp -= 1.0;
     lv_slider_set_value(ui_Slider_Speed, setpointTemp, LV_ANIM_OFF);
-    
-    
+
     int n = sprintf(printlog, "Setpoint %+0.1f", setpointTemp);
-	printrd = true;
+    printrd = true;
     int x = (int)setpointTemp;
     n = sprintf(txt, "%d", x);
-	lv_label_set_text(ui_Speed_Number_1, txt);
+    lv_label_set_text(ui_Speed_Number_1, txt);
     lv_label_set_text(ui_Speed_Number_2, txt);
     request->send(200);
 }
@@ -318,15 +317,15 @@ void onReset(AsyncWebServerRequest *request)
 void onReboot(AsyncWebServerRequest *request)
 {
     char txt[16];
-    memset(txt,0,sizeof(txt));
+    memset(txt, 0, sizeof(txt));
     if (setpointTemp <= 40.0)
         setpointTemp += 1.0;
     lv_slider_set_value(ui_Slider_Speed, setpointTemp, LV_ANIM_OFF);
     int n = sprintf(printlog, "Setpoint %+0.1f", setpointTemp);
-	printrd = true;
+    printrd = true;
     int x = (int)setpointTemp;
     n = sprintf(txt, "%d", x);
-	lv_label_set_text(ui_Speed_Number_1, txt);
+    lv_label_set_text(ui_Speed_Number_1, txt);
     lv_label_set_text(ui_Speed_Number_2, txt);
     // Requests are asynchronous and must always be resolved:
     request->send(200);
@@ -389,7 +388,6 @@ void initWebServer()
     server.onNotFound(onNotFound);
 
     // Routes that correspond to dynamic processing by the microcontroller:
-
     server.on("/temp", onTemp);
     server.on("/reset", onReset);
     server.on("/reboot", onReboot);
@@ -453,7 +451,7 @@ void loop()
     {
         now = millis();
         digitalWrite(pinSTART, !digitalRead(pinSTART));
-        //printLocalTime();
+        printLocalTime();
     }
 
     if (printrd)
@@ -474,7 +472,7 @@ void printLocalTime(void)
     }
     strftime(datetime, 64, "%A, %B %d %Y", &timeinfo);
     lv_label_set_text(ui_lblDate, datetime);
-    strftime(datetime, 64, "%H:%M:%S", &timeinfo);
+    strftime(datetime, 10, "%H:%M", &timeinfo);
     lv_label_set_text(ui_lblTime, datetime);
     Serial.println(&timeinfo, "%A, %B %d %Y %H:%M:%S");
     Serial.print("Day of week: ");
@@ -507,9 +505,15 @@ void printLocalTime(void)
 void Status(void)
 {
     if (digitalRead(pinSTATUS) == LOW)
-        lv_obj_clear_state(ui_chkONOFF, LV_STATE_CHECKED);
+    {
+        lv_obj_clear_flag(ui_imgOff, LV_OBJ_FLAG_HIDDEN);
+        lv_obj_add_flag(ui_imgOn, LV_OBJ_FLAG_HIDDEN);
+    }
     else
-        lv_obj_add_state(ui_chkONOFF, LV_STATE_CHECKED);
+    {
+        lv_obj_clear_flag(ui_imgOn, LV_OBJ_FLAG_HIDDEN);
+        lv_obj_add_flag(ui_imgOff, LV_OBJ_FLAG_HIDDEN);
+    }
 }
 
 float GetTemperature(uint16_t adc_value)
